@@ -18,6 +18,14 @@ if (process.env.NODE_ENV !== "production") {
   app.use(morgan("dev"));
 }
 
+// Root endpoint
+app.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Hello World! Backend API is running !!"
+  });
+});
+
 // Health check
 app.get("/api/health", (req, res) => {
   res.status(200).json({ success: true, message: "Server is healthy" });
